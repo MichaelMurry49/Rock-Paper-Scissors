@@ -41,7 +41,6 @@ class Index {
 
     draw(ctx){
         debugger;
-        console.log("ctx", ctx.height, ctx.width)
         ctx.clearRect(0, 0, 10000, 10000)
         if(this.game.getUnitCount() <= 1){
             debugger;
@@ -144,6 +143,9 @@ class Index {
             let sim = document.getElementById("sim");
             let estimate = document.getElementById("estimate")
             console.log(rocks)
+            index.amount = document.getElementById("amount")
+            index.amount2 = document.getElementById("amount2")
+            index.amount3 = document.getElementById("amount3")
             index.rocks = document.getElementById("rocks")
             index.paper = document.getElementById("paper")
             index.scissors = document.getElementById("scissors")
@@ -158,13 +160,16 @@ class Index {
                 let paper = parseInt(index.paper.value,10);
                 let scissors = parseInt(index.scissors.value,10);
                 console.log("test")
-                console.log(index.rocks.value)
+                console.log(index.rocks.value, rocks)
                 index.nextStep(rocks, paper, scissors);
                 console.log(index.game.getRock(), "what")
                 debugger
-                index.rocks.setAttribute("value", index.game.getRock());
-                index.paper.setAttribute("value", index.game.getPaper());
-                index.scissors.setAttribute("value", index.game.getScissors());
+                index.rocks.value = index.game.getRock();
+                index.amount.innerHTML = index.game.getRock();
+                index.paper.value = index.game.getPaper();
+                index.amount2.innerHTML = index.game.getPaper();
+                index.scissors.value = index.game.getScissors();
+                index.amount3.innerHTML = index.game.getScissors();
                 // debugger;
                 console.log(this)
                 index.draw(ctx);
@@ -174,9 +179,12 @@ class Index {
                 let paper = parseInt(index.paper.value, 10);
                 let scissors = parseInt(index.scissors.value, 10);
                 index.simulate(rocks, paper, scissors);
-                index.rocks.setAttribute("value", index.game.getRock());
-                index.paper.setAttribute("value", index.game.getPaper());
-                index.scissors.setAttribute("value", index.game.getScissors());
+                index.rocks.value = index.game.getRock();
+                index.amount.innerHTML = index.game.getRock();
+                index.paper.value = index.game.getPaper();
+                index.amount2.innerHTML = index.game.getPaper();
+                index.scissors.value = index.game.getScissors();
+                index.amount3.innerHTML = index.game.getScissors();
                 index.draw(ctx);
             })
             estimate.addEventListener("click", () => {
