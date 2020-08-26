@@ -2,7 +2,6 @@ import RockPaperScissors from './rock_paper_scissors';
 
 class Index {
     constructor(){
-        debugger
         this.game = new RockPaperScissors(0,0,0);
         this.rockIMG = new Image();
         this.rockIMG.src = './assets/rock.png';
@@ -40,33 +39,26 @@ class Index {
     }
 
     draw(ctx){
-        debugger;
         ctx.clearRect(0, 0, 10000, 10000)
         if(this.game.getUnitCount() <= 1){
-            debugger;
             ctx.fillStyle = "white";
             if(this.game.getRock() === 1){
-                console.log("rock wins")
                 ctx.fillStyle = "white";
                 ctx.fillText("Rock Wins!", 130, 130);
                 ctx.drawImage(this.rockIMG, 80, 0, 150, 150);
             } else if(this.game.getPaper() === 1){
-                console.log("paper wins")
                 ctx.fillStyle = "white";
                 ctx.fillText("Paper Wins!", 130, 142);
                 ctx.drawImage(this.paperIMG, 80, 0, 150, 150);
             } else if(this.game.getScissors() === 1){
-                console.log("scissors win")
                 ctx.fillStyle = "white";
                 ctx.fillText("Scissors Win!", 115, 115);
                 ctx.drawImage(this.scissorsIMG, 80, 0, 150, 150);
             } else {
-                console.log("invalid input")
                 ctx.fillStyle = "white";
                 ctx.fillText("Invalid Input", 130, 140);
                 ctx.drawImage(this.xIMG, 80, 0, 150, 150);
             }
-            debugger;
         } else if(this.game.getUnit1() === "r"){
             if(this.game.getUnit2() === "r"){
                 ctx.drawImage(this.rockIMG, 0, 35, 80, 80);
@@ -128,21 +120,15 @@ class Index {
                 ctx.drawImage(this.checkIMG, 200, 35, 100, 100);
             }
         }
-        console.log(this.game)
-        console.log("hi")
-        // ctx.clearRect(80, 0, 300, 300);
-        debugger;
     }
     render(){
         let index = this;
         document.addEventListener("DOMContentLoaded", function(){
-            console.log("okay")
             let rpsCanvas = document.getElementById("rock-paper-scissors");
             const ctx = rpsCanvas.getContext("2d");
             let next = document.getElementById("next");
             let sim = document.getElementById("sim");
             let estimate = document.getElementById("estimate")
-            console.log(rocks)
             index.amount = document.getElementById("amount")
             index.amount2 = document.getElementById("amount2")
             index.amount3 = document.getElementById("amount3")
@@ -154,24 +140,17 @@ class Index {
             index.paperProb = document.getElementById("paper-prob")
             index.scissorsProb = document.getElementById("scissors-prob")
 
-            console.log(this.rocks, this.paper, this.scissors)
             next.addEventListener("click", () => {
                 let rocks = parseInt(index.rocks.value,10);
                 let paper = parseInt(index.paper.value,10);
                 let scissors = parseInt(index.scissors.value,10);
-                console.log("test")
-                console.log(index.rocks.value, rocks)
                 index.nextStep(rocks, paper, scissors);
-                console.log(index.game.getRock(), "what")
-                debugger
                 index.rocks.value = index.game.getRock();
                 index.amount.innerHTML = index.game.getRock();
                 index.paper.value = index.game.getPaper();
                 index.amount2.innerHTML = index.game.getPaper();
                 index.scissors.value = index.game.getScissors();
                 index.amount3.innerHTML = index.game.getScissors();
-                // debugger;
-                console.log(this)
                 index.draw(ctx);
             })
             sim.addEventListener("click", () => {
@@ -196,8 +175,6 @@ class Index {
                 index.rockProb.innerHTML = probs[0];
                 index.paperProb.innerHTML = probs[1];
                 index.scissorsProb.innerHTML = probs[2];
-                console.log("hey")
-
             })
            
         })

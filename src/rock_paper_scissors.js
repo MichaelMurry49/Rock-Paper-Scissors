@@ -8,7 +8,6 @@ class RockPaperScissors {
     }
 
     getUnitCount() {
-        debugger;
         return this.rock + this.paper + this.scissors;
     }
 
@@ -70,13 +69,16 @@ class RockPaperScissors {
         let total = this.getUnitCount();
         for(let i = total; i > 1; i--){
             this.step();
-            debugger;
         }
     }
 
     step() {
-        debugger;
-        let rand = Math.floor(Math.random() * (this.rock + this.paper + this.scissors));
+
+        let size = this.getUnitCount();
+        if(size <= 1) return;
+        let rand = Math.floor(Math.random() * size);
+        console.log(this.rock, this.paper, this.scissors)
+        console.log(rand);
         if (rand < this.rock) {
             this.rock--;
             this.unit1 = "r"
@@ -87,7 +89,10 @@ class RockPaperScissors {
             this.scissors--;
             this.unit1 = "s"
         }
-        rand = Math.floor(Math.random() * (this.rock + this.paper + this.scissors));
+        rand = Math.floor(Math.random() * (size-1));
+        console.log(this.rock, this.paper, this.scissors)
+        // console.log(size-1);
+        console.log(rand);
         if (rand < this.rock) {
             this.rock--;
             this.unit2 = "r"
