@@ -1,0 +1,114 @@
+class RockPaperScissors {
+    constructor(r, p, s){
+        this.rock = r;
+        this.paper = p;
+        this.scissors = s;
+        this.unit1 = "";
+        this.unit2 = "";
+    }
+
+    getUnitCount() {
+        debugger;
+        return this.rock + this.paper + this.scissors;
+    }
+
+    getUnit1(){
+        return this.unit1;
+    }
+
+    getUnit2(){
+        return this.unit2;
+    }
+
+    getRock() {
+        return this.rock;
+    }
+
+    getPaper() {
+        return this.paper;
+    }
+
+    getScissors() {
+        return this.scissors;
+    }
+
+    setRock(r) {
+        this.rock = r;
+    }
+
+    setPaper(p) {
+        this.paper = p;
+    }
+
+    setScissors(s) {
+        this.scissors = s;
+    }
+
+    calculate() {
+        return "placeholder"
+    }
+
+    simulate() {
+        let total = this.getUnitCount();
+        for(let i = total; i > 1; i--){
+            this.step();
+        }
+    }
+
+    step() {
+        debugger;
+        let rand = Math.floor(Math.random() * (this.rock + this.paper + this.scissors));
+        if (rand < this.rock) {
+            this.rock--;
+            this.unit1 = "r"
+        } else if (rand < this.rock + this.paper) {
+            this.paper--;
+            this.unit1 = "p"
+        } else {
+            this.scissors--;
+            this.unit1 = "s"
+        }
+        rand = Math.floor(Math.random() * (this.rock + this.paper + this.scissors));
+        if (rand < this.rock) {
+            this.rock--;
+            this.unit2 = "r"
+        } else if (rand < this.rock + this.paper) {
+            this.paper--;
+            this.unit2 = "p"
+        } else {
+            this.scissors--;
+            this.unit2 = "s"
+        }
+
+        if (this.unit1 === "r") {
+            if (this.unit2 === "r") {
+                this.scissors++;
+            } else if (this.unit2 === "p") {
+                this.paper++;
+            } else {
+                this.rock++;
+            }
+
+        } else if (this.unit1 === "p") {
+            if (this.unit2 === "r") {
+                this.paper++;
+            } else if (this.unit2 === "p") {
+                this.rock++;
+            } else {
+                this.scissors++;
+            }
+        } else {
+            if (this.unit2 === "r") {
+                this.rock++;
+            } else if (this.unit2 === "p") {
+                this.scissors++;
+            } else {
+                this.paper++;
+            }
+        }
+
+        // return [r, p, s, this.unit1, this.unit2];
+    }
+}
+
+export default RockPaperScissors;

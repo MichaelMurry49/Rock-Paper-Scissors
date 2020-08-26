@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="./assets/favicon.png" height="10px">
+        <title>RPS Simulator</title>
+        <link rel="stylesheet" type="text/css" href="./styles.css">
+        <script src="./dist/main.js"></script>
+    </head>
+    <body>
+        <canvas id="rock-paper-scissors"></canvas>
+        <div id="input">
+            </br>Rocks: <input type="range" id="rocks" oninput="amount.value=rocks.value" value="0" max="1000"/> 
+            <output id="amount" name="amount" for="rocks">0</output>
+            </br>Paper: <input type="range" id="paper" oninput="amount2.value=paper.value" value="0" max="1000"/>
+            <output id="amount2" name="amount2" for="paper">0</output>
+            </br>Scissors: <input type="range" id="scissors" oninput="amount3.value=scissors.value" value="0" max="1000"/>
+            <output id="amount3" name="amount3" for="scissors">0</output>
+            </br> <button id="next">Next</button>
+        <div>
+    </body>
+</html>

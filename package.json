@@ -1,0 +1,30 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack --watch --mode=development",
+    "postinstall": "webpack"
+  },
+  "keywords": [],
+  "author": "Michael Murry",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "engines": {
+    "node": "12.5.0",
+    "npm": "6.9.0"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MichaelMurry49/Rock-Paper-Scissors.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MichaelMurry49/Rock-Paper-Scissors/issues"
+  },
+  "homepage": "https://github.com/MichaelMurry49/Rock-Paper-Scissors#readme"
+}
