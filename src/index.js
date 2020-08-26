@@ -25,6 +25,14 @@ class Index {
         this.game.step();
 
     }
+
+    simulate(r, p, s){
+        this.game.setRock(r);
+        this.game.setPaper(p);
+        this.game.setScissors(s);
+        this.game.simulate();
+    }
+
     draw(ctx){
         debugger;
         console.log("ctx", ctx.height, ctx.width)
@@ -127,6 +135,7 @@ class Index {
             let rpsCanvas = document.getElementById("rock-paper-scissors");
             const ctx = rpsCanvas.getContext("2d");
             let next = document.getElementById("next");
+            let sim = document.getElementById("sim");
             console.log(rocks)
             index.rocks = document.getElementById("rocks")
             index.paper = document.getElementById("paper")
@@ -146,6 +155,16 @@ class Index {
                 index.scissors.setAttribute("value", index.game.getScissors());
                 // debugger;
                 console.log(this)
+                index.draw(ctx);
+            })
+            sim.addEventListener("click", () => {
+                let rocks = parseInt(index.rocks.value, 10);
+                let paper = parseInt(index.paper.value, 10);
+                let scissors = parseInt(index.scissors.value, 10);
+                index.simulate(rocks, paper, scissors);
+                index.rocks.setAttribute("value", index.game.getRock());
+                index.paper.setAttribute("value", index.game.getPaper());
+                index.scissors.setAttribute("value", index.game.getScissors());
                 index.draw(ctx);
             })
            
