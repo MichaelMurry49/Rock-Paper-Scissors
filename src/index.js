@@ -12,6 +12,10 @@ class Index {
         this.scissorsIMG.src = './assets/scissors.png'
         this.xIMG = new Image();
         this.xIMG.src = './assets/x.png'
+        this.equalIMG = new Image();
+        this.equalIMG.src = './assets/equal.png'
+        this.checkIMG = new Image();
+        this.checkIMG.src = './assets/check.png'
     }
 
     nextStep(r, p, s){
@@ -52,55 +56,63 @@ class Index {
             debugger;
         } else if(this.game.getUnit1() === "r"){
             if(this.game.getUnit2() === "r"){
-                ctx.drawImage(this.rockIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.rockIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.rockIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.rockIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.equalIMG, 160, 50, 50, 50)
+                ctx.drawImage(this.scissorsIMG, 200, 35, 100, 100);
+                ctx.drawImage(this.xIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.xIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.checkIMG, 200, 35, 100, 100);
             } else if(this.game.getUnit2() === "p"){
-                ctx.drawImage(this.rockIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.paperIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.rockIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.paperIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 150, 0, 150, 150);
             } else {
-                ctx.drawImage(this.rockIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.scissorsIMG, 80, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.rockIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.scissorsIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 150, 0, 150, 150);
             }
         } else if(this.game.getUnit1() === "p"){
             if (this.game.getUnit2() === "r") {
-                ctx.drawImage(this.paperIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.rockIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.rockIMG, 80, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.paperIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.rockIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 150, 0, 150, 150);
             } else if (this.game.getUnit2() === "p") {
-                ctx.drawImage(this.paperIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.paperIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.paperIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.paperIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.equalIMG, 150, 50, 50, 50)
+                ctx.drawImage(this.rockIMG, 200, 35, 100, 100);
+                ctx.drawImage(this.xIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.xIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.checkIMG, 200, 35, 100, 100);
             } else {
-                ctx.drawImage(this.paperIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.scissorsIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.paperIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.scissorsIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 150, 0, 150, 150);
             }
         } else {
             if (this.game.getUnit2() === "r") {
-                ctx.drawImage(this.scissorsIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.rockIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.scissorsIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.rockIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 150, 0, 150, 150);
             } else if (this.game.getUnit2() === "p") {
-                ctx.drawImage(this.scissorsIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.paperIMG, 80, 0, 100, 100);
-                // ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.scissorsIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.paperIMG, 150, 0, 150, 150);
+                ctx.drawImage(this.checkIMG, 0, 0, 150, 150);
+                ctx.drawImage(this.xIMG, 150, 0, 150, 150);
             } else {
-                ctx.drawImage(this.scissorsIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.scissorsIMG, 80, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 0, 0, 100, 100);
-                ctx.drawImage(this.xIMG, 80, 0, 100, 100);
+                ctx.drawImage(this.scissorsIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.scissorsIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.equalIMG, 160, 50, 50, 50)
+                ctx.drawImage(this.paperIMG, 200, 35, 100, 100);
+                ctx.drawImage(this.xIMG, 0, 35, 80, 80);
+                ctx.drawImage(this.xIMG, 80, 35, 80, 80);
+                ctx.drawImage(this.checkIMG, 200, 35, 100, 100);
             }
         }
         console.log(this.game)
