@@ -15,6 +15,8 @@ class Index {
         this.equalIMG.src = './assets/equal.png'
         this.checkIMG = new Image();
         this.checkIMG.src = './assets/check.png'
+        this.paperwins = new Image();
+        this.paperwins.src = './assets/paperwins.png'
     }
 
     setVals(r,p,s){
@@ -40,24 +42,25 @@ class Index {
 
     draw(ctx){
         ctx.clearRect(0, 0, 10000, 10000)
+        ctx.font = "20px Arial";
         if(this.game.getUnitCount() <= 1){
             ctx.fillStyle = "white";
             if(this.game.getRock() === 1){
                 ctx.fillStyle = "white";
-                ctx.fillText("Rock Wins!", 130, 130);
-                ctx.drawImage(this.rockIMG, 80, 0, 150, 150);
+                ctx.fillText("Rock Wins!", 105, 130);
+                ctx.drawImage(this.rockIMG, 80, -10, 150, 150);
             } else if(this.game.getPaper() === 1){
                 ctx.fillStyle = "white";
-                ctx.fillText("Paper Wins!", 130, 142);
-                ctx.drawImage(this.paperIMG, 80, 0, 150, 150);
+                ctx.fillText("Paper Wins!", 100, 142);
+                ctx.drawImage(this.paperIMG, 80, -10, 150, 150);
             } else if(this.game.getScissors() === 1){
                 ctx.fillStyle = "white";
-                ctx.fillText("Scissors Win!", 115, 115);
+                ctx.fillText("Scissors Win!", 90, 115);
                 ctx.drawImage(this.scissorsIMG, 80, 0, 150, 150);
             } else {
                 ctx.fillStyle = "white";
-                ctx.fillText("Invalid Input", 130, 140);
-                ctx.drawImage(this.xIMG, 80, 0, 150, 150);
+                ctx.fillText("Invalid Input", 100, 140);
+                ctx.drawImage(this.xIMG, 80, -10, 150, 150);
             }
         } else if(this.game.getUnit1() === "r"){
             if(this.game.getUnit2() === "r"){
