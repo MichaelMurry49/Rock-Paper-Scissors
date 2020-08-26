@@ -19,6 +19,15 @@
             <output id="amount3" name="amount3" for="scissors">0</output>
             </br> </br> <button id="next">Next</button>
             <button id="sim">Simulate</button>
+            </br> </br>
+            Trial Count: 
+            <input type="range" id="trialcount" oninput="amount4.value=trialcount.value" value="1" min="1" max="1000"/>
+            <output id="amount4" name="amount4" for="trialcount">0</output>
+            </br></br><button id="estimate">Estimate Probabilities</button>
+            </br></br> Last Estimate: 
+            </br> Rocks: <span id="rock-prob">0</span>%
+            </br> Paper: <span id="paper-prob">0</span>%
+            </br> Scissors: <span id="scissors-prob">0</span>%  
         <div>
     </body>
 </html>

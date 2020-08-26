@@ -18,19 +18,25 @@ class Index {
         this.checkIMG.src = './assets/check.png'
     }
 
-    nextStep(r, p, s){
+    setVals(r,p,s){
         this.game.setRock(r);
         this.game.setPaper(p);
         this.game.setScissors(s);
+    }
+    nextStep(r, p, s){
+        this.setVals(r,p,s);
         this.game.step();
 
     }
 
     simulate(r, p, s){
-        this.game.setRock(r);
-        this.game.setPaper(p);
-        this.game.setScissors(s);
+        this.setVals(r,p,s);
         this.game.simulate();
+    }
+
+    estimate(num, r, p, s){
+        this.setVals(r,p,s);
+        return this.game.estimate(num);
     }
 
     draw(ctx){
@@ -136,10 +142,16 @@ class Index {
             const ctx = rpsCanvas.getContext("2d");
             let next = document.getElementById("next");
             let sim = document.getElementById("sim");
+            let estimate = document.getElementById("estimate")
             console.log(rocks)
             index.rocks = document.getElementById("rocks")
             index.paper = document.getElementById("paper")
             index.scissors = document.getElementById("scissors")
+            index.num = document.getElementById("trialcount")
+            index.rockProb = document.getElementById("rock-prob")
+            index.paperProb = document.getElementById("paper-prob")
+            index.scissorsProb = document.getElementById("scissors-prob")
+
             console.log(this.rocks, this.paper, this.scissors)
             next.addEventListener("click", () => {
                 let rocks = parseInt(index.rocks.value,10);
@@ -166,6 +178,18 @@ class Index {
                 index.paper.setAttribute("value", index.game.getPaper());
                 index.scissors.setAttribute("value", index.game.getScissors());
                 index.draw(ctx);
+            })
+            estimate.addEventListener("click", () => {
+                let rocks = parseInt(index.rocks.value, 10);
+                let paper = parseInt(index.paper.value, 10);
+                let scissors = parseInt(index.scissors.value, 10);
+                let num = parseInt(index.num.value, 10);
+                let probs = index.estimate(num, rocks, paper, scissors);
+                index.rockProb.innerHTML = probs[0];
+                index.paperProb.innerHTML = probs[1];
+                index.scissorsProb.innerHTML = probs[2];
+                console.log("hey")
+
             })
            
         })

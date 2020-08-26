@@ -44,14 +44,33 @@ class RockPaperScissors {
         this.scissors = s;
     }
 
-    calculate() {
-        return "placeholder"
+    estimate(num) {
+        if(num < 1) return [0,0,0];
+        let probs = [0,0,0];
+        let r = this.rock;
+        let p = this.paper;
+        let s = this.scissors;
+        for(let i = 0; i < num; i++){
+            this.simulate();
+            if(this.rock === 1){
+                probs[0]++;
+            } else if(this.paper === 1){
+                probs[1]++;
+            } else {
+                probs[2]++;
+            }
+            this.setRock(r)
+            this.setPaper(p);
+            this.setScissors(s);
+        }
+        return probs.map(el => (el/num)*100)
     }
 
     simulate() {
         let total = this.getUnitCount();
         for(let i = total; i > 1; i--){
             this.step();
+            debugger;
         }
     }
 
